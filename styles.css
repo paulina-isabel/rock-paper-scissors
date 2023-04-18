@@ -14,9 +14,9 @@ header {
   font-weight: bolder;
 }
 
-.rock-button, .paper-button, .scissors-button {
-  height: 220px;
-  width: 220px;
+.rock-button, .paper-button, .scissors-button, .alien-button {
+  height: 180px;
+  width: 180px;
   background: transparent;
   background-size: cover;
   border: none;
@@ -43,6 +43,10 @@ header {
   background-image: url("assets/happy-scissors.png");
 }
 
+.alien-button {
+  background-image: url("assets/flat-alien.png");
+}
+
 .computer-wins-header, .human-wins-header {
   font-size: 20px;
   font-weight: bolder;
@@ -64,7 +68,6 @@ header {
   left: 0;
 }
 
-/* .computer-wins, .human-wins {
-  display: flex;
-  align-items: center;
-} */
+.hidden {
+  display: none;
+}
