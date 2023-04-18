@@ -1,0 +1,70 @@
+* {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: large;
+  }
+
+html {
+  background: linear-gradient(#FAFAFF, #E4D9FF, #FFE6E8);
+  height: 100%;
+  }
+
+header {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.rock-button, .paper-button, .scissors-button {
+  height: 220px;
+  width: 220px;
+  background: transparent;
+  background-size: cover;
+  border: none;
+  margin: 30px;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.buttons-area {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+}
+
+.rock-button {
+  background-image: url("assets/happy-rocks.png");
+}
+
+.paper-button {
+  background-image: url("assets/happy-paper.png");
+}
+
+.scissors-button {
+  background-image: url("assets/happy-scissors.png");
+}
+
+.computer-wins-header, .human-wins-header {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.computer-wins, .human-wins {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 250px;
+  background: #E4D9FF;
+}
+
+.computer-wins {
+  right: 0;
+}
+
+.human-wins {
+  left: 0;
+}
+
+/* .computer-wins, .human-wins {
+  display: flex;
+  align-items: center;
+} */
