@@ -8,28 +8,28 @@ var paperButton = document.querySelector('.paper-button');
 var scissorsButton = document.querySelector('.scissors-button');
 var alienButton = document.querySelector('.alien-button');
 var ufoButton = document.querySelector('.ufo-button');
-
+var changeGameButton = document.querySelector('.change-game-button');
 
 //add an event listener to difficult and classic choices
 //calling a function that will show or hide certain attributes
 
-classicChoiceButton.addEventListener('click', chooseClassicGame)
-difficultChoiceButton.addEventListener('click', chooseDifficultGame)
+classicChoiceButton.addEventListener('click', chooseClassicGame);
+difficultChoiceButton.addEventListener('click', chooseDifficultGame);
 
 function chooseClassicGame() {
-  rockButton.classList.remove('hidden')
-  paperButton.classList.remove('hidden')
-  scissorsButton.classList.remove('hidden')
-  classicChoiceButton.classList.add('hidden')
-  difficultChoiceButton.classList.add('hidden')
+  rockButton.classList.remove('hidden');
+  paperButton.classList.remove('hidden');
+  scissorsButton.classList.remove('hidden');
+  classicChoiceButton.classList.add('hidden');
+  difficultChoiceButton.classList.add('hidden');
 }
 
 function chooseDifficultGame() {
-  rockButton.classList.remove('hidden')
-  paperButton.classList.remove('hidden')
-  scissorsButton.classList.remove('hidden')
-  alienButton.classList.remove('hidden')
-  ufoButton.classList.remove('hidden')
-  classicChoiceButton.classList.add('hidden')
-  difficultChoiceButton.classList.add('hidden')
+  rockButton.classList.remove('hidden');
+  paperButton.classList.remove('hidden');
+  scissorsButton.classList.remove('hidden');
+  alienButton.classList.remove('hidden');
+  ufoButton.classList.remove('hidden');
+  classicChoiceButton.classList.add('hidden');
+  difficultChoiceButton.classList.add('hidden');
 }

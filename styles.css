@@ -19,7 +19,7 @@ header {
   padding: 10px;
 }
 
-.game-area {
+.home-view {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -39,7 +39,7 @@ header {
 .rock-button, .paper-button, .scissors-button, .alien-button, .ufo-button, .change-game-button, .classic-choice, .difficult-choice {
   cursor: pointer;
   transform: scale(1.1);
-  border: #FFE6E8 3px solid;
+  /* border: #FFE6E8 3px solid; */
 }
 
 .change-game-button {
