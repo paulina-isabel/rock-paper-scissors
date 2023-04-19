@@ -7,19 +7,36 @@
  <body>
   <title>Choose your fighter!</title>
    <header>Rock, Paper, Scissors</header>
-   <p id="header">Choose your fighter!</p>
-   <section class="buttons-area">
-    <button class="rock-button"></button>
-    <button class="paper-button"></button>
-    <button class="scissors-button"></button>
+   <div id="header">Choose your game!</div>
+   <button class="change-game-button hidden">Change Game?</button>
+  <section class="game-area">
+    <div class="classic">
+      🪨📃✂️
+      <b>CLASSIC</b>
+      <i>rock > scissors</i>
+      <i>paper > rock</i>
+      <i>scissors > paper</i>
+    </div>
+    <div class="difficult">
+      🪨📃✂️👽🛸
+      <b>DIFFICULT</b>
+      <i>rock > scissors & ufo</i>
+      <i>paper > rock & alien</i>
+      <i>scissors > paper & ufo</i>
+      <i>alien > scissors & rock</i>
+      <i>ufo > paper & alien </i>
+    </div>
+    <button class="rock-button hidden"></button>
+    <button class="paper-button hidden"></button>
+    <button class="scissors-button hidden"></button>
     <button class="alien-button hidden"></button>
   </section>
     <section class="computer-wins">
-      <div class="computer-wins-header">Computer</div>
+      <div class="computer-wins-header">💻 Computer 💻</div>
         <p class="computer-wins-tally"><em>Wins: 0</em></p>
     </section>
     <section class="human-wins">
-      <div class="human-wins-header">Human</div>
+      <div class="human-wins-header">👸 Human 👸</div>
         <p class="human-wins-tally"><em>Wins: 0</em></p>
     </section>
   <script src="main.js"></script>

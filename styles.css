@@ -2,6 +2,7 @@
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: large;
+  border: #FFE6E8 3px solid;
   }
 
 html {
@@ -14,6 +15,18 @@ header {
   font-weight: bolder;
 }
 
+.game-area {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header, header {
+  padding: 10px;
+}
+
 .rock-button, .paper-button, .scissors-button, .alien-button {
   height: 180px;
   width: 180px;
@@ -21,14 +34,20 @@ header {
   background-size: cover;
   border: none;
   margin: 30px;
-  cursor: pointer;
-  transform: scale(1.1);
 }
 
-.buttons-area {
-  margin-top: 90px;
-  display: flex;
-  justify-content: center;
+.rock-button, .paper-button, .scissors-button, .alien-button, .change-game-button {
+  cursor: pointer;
+  transform: scale(1.1);
+  border: #FFE6E8 3px solid;
+}
+
+.change-game-button {
+  font-size: 14px;
+  height: 40px;
+  width: 140px;
+  background: #FFE6E8;
+  border-radius: 10px;
 }
 
 .rock-button {
@@ -47,12 +66,33 @@ header {
   background-image: url("assets/flat-alien.png");
 }
 
+.classic, .difficult {
+
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  background-color: #D2C3E5;
+}
+
+.classic {
+  height: 200px;
+}
+
+.difficult {
+  margin-top: 40px;
+  height: 230px;
+}
+
 .computer-wins-header, .human-wins-header {
   font-size: 20px;
   font-weight: bolder;
 }
 
 .computer-wins, .human-wins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: #FFE6E8 3px solid;
   position: absolute;
   bottom: 0;
   height: 100%;
