@@ -1,0 +1,113 @@
+* {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: large;
+  border: #FFE6E8 3px solid;
+  }
+
+html {
+  background: linear-gradient(#FAFAFF, #E4D9FF, #FFE6E8);
+  height: 100%;
+  }
+
+header {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.game-area {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header, header {
+  padding: 10px;
+}
+
+.rock-button, .paper-button, .scissors-button, .alien-button {
+  height: 180px;
+  width: 180px;
+  background: transparent;
+  background-size: cover;
+  border: none;
+  margin: 30px;
+}
+
+.rock-button, .paper-button, .scissors-button, .alien-button, .change-game-button {
+  cursor: pointer;
+  transform: scale(1.1);
+  border: #FFE6E8 3px solid;
+}
+
+.change-game-button {
+  font-size: 14px;
+  height: 40px;
+  width: 140px;
+  background: #FFE6E8;
+  border-radius: 10px;
+}
+
+.rock-button {
+  background-image: url("assets/happy-rocks.png");
+}
+
+.paper-button {
+  background-image: url("assets/happy-paper.png");
+}
+
+.scissors-button {
+  background-image: url("assets/happy-scissors.png");
+}
+
+.alien-button {
+  background-image: url("assets/flat-alien.png");
+}
+
+.classic, .difficult {
+
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  background-color: #D2C3E5;
+}
+
+.classic {
+  height: 200px;
+}
+
+.difficult {
+  margin-top: 40px;
+  height: 230px;
+}
+
+.computer-wins-header, .human-wins-header {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.computer-wins, .human-wins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: #FFE6E8 3px solid;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 250px;
+  background: #E4D9FF;
+}
+
+.computer-wins {
+  right: 0;
+}
+
+.human-wins {
+  left: 0;
+}
+
+.hidden {
+  display: none;
+}
