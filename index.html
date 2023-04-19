@@ -5,40 +5,50 @@
    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
  </head>
  <body>
-  <title>Choose your fighter!</title>
+  <title>Rock, Paper, Scissors</title>
    <header>Rock, Paper, Scissors</header>
-   <div id="header">Choose your game!</div>
+   <div id="display-message">Choose your game!</div>
    <button class="change-game-button hidden">Change Game?</button>
-  <section class="game-area">
-    <div class="classic">
-      🪨📃✂️
-      <b>CLASSIC</b>
-      <i>rock > scissors</i>
-      <i>paper > rock</i>
-      <i>scissors > paper</i>
-    </div>
-    <div class="difficult">
-      🪨📃✂️👽🛸
-      <b>DIFFICULT</b>
-      <i>rock > scissors & ufo</i>
-      <i>paper > rock & alien</i>
-      <i>scissors > paper & ufo</i>
-      <i>alien > scissors & rock</i>
-      <i>ufo > paper & alien </i>
-    </div>
+  <section class="home-view">
+    <button class="classic-choice">
+      🪨📃✂️<br>
+      <b>CLASSIC</b><br>
+      rock > scissors<br>
+      paper > rock<br>
+      scissors > paper
+    </button>
+    <button class="difficult-choice">
+      🪨📃✂️👽🛸<br>
+      <b>DIFFICULT</b><br>
+      rock > scissors & ufo<br>
+      paper > rock & alien<br>
+      scissors > paper & ufo<br>
+      alien > scissors & rock<br>
+      ufo > paper & alien
+    </button>
+  </section>
+  <section class="game-view">
+    <p class="computer-choice">
+      <!-- <img src="assets/happy-rocks.png">
+      <img src="assets/happy-paper.png">
+      <img src="assets/happy-scissors.png">
+      <img src="assets/flat-alien.png">
+      <img src="assets/ufo.png"> -->
+    </p>
     <button class="rock-button hidden"></button>
     <button class="paper-button hidden"></button>
-    <button class="scissors-button hidden"></button>
+    <button class="scissors-button hidden"></button><br>
     <button class="alien-button hidden"></button>
+    <button class="ufo-button hidden"></button>
   </section>
-    <section class="computer-wins">
-      <div class="computer-wins-header">💻 Computer 💻</div>
-        <p class="computer-wins-tally"><em>Wins: 0</em></p>
-    </section>
-    <section class="human-wins">
-      <div class="human-wins-header">👸 Human 👸</div>
-        <p class="human-wins-tally"><em>Wins: 0</em></p>
-    </section>
+  <section class="computer-wins">
+    <div class="computer-wins-header">💻 Computer 💻</div>
+      <p class="computer-wins-tally"><em>Wins: 0</em></p>
+  </section>
+  <section class="human-wins">
+    <div class="human-wins-header">👸 Human 👸</div>
+      <p class="human-wins-tally"><em>Wins: 0</em></p>
+  </section>
   <script src="main.js"></script>
  </body>
 </html>
