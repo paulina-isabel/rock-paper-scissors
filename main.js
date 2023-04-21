@@ -70,24 +70,44 @@ var difficultGame = createGame(humanPlayer, computerPlayer, difficultVersion);
 // console.log(difficultGame)
 
 //this is so the human & computer obj can be assigned a new key with a random fighter
-var randomIndex = Math.floor(Math.random() * classicVersion.fighters.length);
-var randomFighter = classicVersion.fighters[randomIndex]
+var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
+var randomClassicFighter = classicVersion.fighters[randomClassicIndex]
 
-function takeTurn(activePlayer, fighter) {
-  if (activePlayer === humanPlayer) {
-    activePlayer.chosenFighter = fighter
-  } else if (activePlayer === computerPlayer) {
-      for (var i = 0; i < classicVersion.length; i++) {
-      }
-    activePlayer.chosenFighter = randomFighter
+randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
+var randomDifficultFighter = difficultVersion.fighters[randomDifficultIndex]
+// console.log(randomDifficultFighter)
+
+function takeClassicTurn(activeClassicPlayer, fighter) {
+  if (activeClassicPlayer === humanPlayer) {
+    activeClassicPlayer.chosenFighter = fighter
+  } else if (activeClassicPlayer === computerPlayer) {
+      // for (var i = 0; i < classicVersion.length; i++) {
+      // }
+    activeClassicPlayer.chosenFighter = randomClassicFighter
     }
-  return activePlayer
+  return activeClassicPlayer
 }
 
-var firstTurn = takeTurn(computerPlayer)
+function takeDifficultTurn(activeDifficultPlayer, fighter) {
+  if (activeDifficultPlayer === humanPlayer) {
+    activeDifficultPlayer.chosenFighter = fighter
+  } else if (activeDifficultPlayer === computerPlayer) {
+      // for (var i = 0; i < difficultVersion.length; i++) {
+      // }
+    activeDifficultPlayer.chosenFighter = randomDifficultFighter
+    }
+  return activeDifficultPlayer
+}
+
+// var firstTurn = takeClassicTurn(computerPlayer)
 // console.log(firstTurn)
-var secondTurn = takeTurn(humanPlayer, 'scissors')
+// var secondTurn = takeClassicTurn(humanPlayer, 'scissors')
 // console.log(secondTurn)
+
+var thirdTurn = takeDifficultTurn(computerPlayer)
+// console.log(thirdTurn)
+var fourthTurn = takeDifficultTurn(humanPlayer, 'scissors')
+// console.log(fourthTurn)
 
 // **********RULES*************
 
@@ -113,7 +133,7 @@ function whoWonClassic(player1, player2) {
   }
 }
 
-winner = whoWonClassic(humanPlayer, computerPlayer)
+// winner = whoWonClassic(humanPlayer, computerPlayer)
 // console.log(classicFighters[humanPlayer.chosenFighter].beats)
 // console.log(computerPlayer.chosenFighter)
 // console.log(humanPlayer.chosenFighter)
@@ -123,6 +143,36 @@ winner = whoWonClassic(humanPlayer, computerPlayer)
 // console.log(winner)
 
 //////////difficult/////////
+
+var difficultFighters = {
+  rock: {beats: 'scissors' || 'ufo'},
+  paper: {beats: 'rock' || 'alien'},
+  scissors: {beats: 'paper' || 'ufo'},
+  alien: {beats: 'scissors' || 'rock'},
+  ufo: {beats: 'paper' || 'alien'}
+};
+
+function whoWonDifficult(player1, player2) {
+  if (difficultFighters[player1.chosenFighter].beats === player2.chosenFighter) {
+    console.log('in first')
+    player1.playerWins += 1
+    return `${player1.playerName} won this round!`
+  } else if (difficultFighters[player2.chosenFighter].beats === player1.chosenFighter) {
+    console.log('in second')
+    player2.playerWins += 1
+    return `${player2.playerName} won this round!`
+  } else {
+    console.log('in third')
+    return `It's a draw!`
+  }
+}
+
+winner = whoWonDifficult(humanPlayer, computerPlayer)
+console.log(winner)
+console.log(humanPlayer.playerWins)
+console.log(computerPlayer.playerWins)
+console.log(computerPlayer.chosenFighter)
+console.log(difficultFighters[computerPlayer.chosenFighter].beats)
 
 // *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
 
