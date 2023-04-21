@@ -1,11 +1,13 @@
-// var displayMessage = document.querySelector('#display-message');
+var displayMessage = document.querySelector('#display-message');
 
-// var gameView = document.querySelector('.game-view');
+var classicGameView = document.querySelector('.classic-game-view');
+var difficultGameView = document.querySelector('.difficult-game-view');
+var homeView = document.querySelector('.home-view');
 // var computerChoiceDisplay = document.querySelector('.computer-choice');
 
-// var changeGameButton = document.querySelector('.change-game-button');
-// var classicChoiceButton = document.querySelector('.classic-choice');
-// var difficultChoiceButton = document.querySelector('.difficult-choice');
+var changeGameButton = document.querySelector('.change-game-button');
+var classicChoiceButton = document.querySelector('.classic-choice');
+var difficultChoiceButton = document.querySelector('.difficult-choice');
 // var rockButton = document.querySelector('.rock-button');
 // var paperButton = document.querySelector('.paper-button');
 // var scissorsButton = document.querySelector('.scissors-button');
@@ -13,26 +15,26 @@
 // var ufoButton = document.querySelector('.ufo-button');
 // var rocksImage = document.querySelector('.rocks-image');
 
-// var computerRock = document.querySelector('.computer-rock');
+var computerRock = document.querySelector('.computer-rock');
 
-// classicChoiceButton.addEventListener('click', chooseClassicGame);
-// difficultChoiceButton.addEventListener('click', chooseDifficultGame);
-// rockButton.addEventListener('click', chooseRock);
-// paperButton.addEventListener('click', choosePaper);
-// scissorsButton.addEventListener('click', chooseScissors);
-// alienButton.addEventListener('click', chooseAlien);
-// ufoButton.addEventListener('click', chooseUfo);
+classicChoiceButton.addEventListener('click', chooseClassicGame);
+difficultChoiceButton.addEventListener('click', chooseDifficultGame);
+rockButton.addEventListener('click', chooseRock);
+paperButton.addEventListener('click', choosePaper);
+scissorsButton.addEventListener('click', chooseScissors);
+alienButton.addEventListener('click', chooseAlien);
+ufoButton.addEventListener('click', chooseUfo);
 
-// var classicGameisChosen = false;
-// var difficultGameisChosen = false;
+var classicGameisChosen = false;
+var difficultGameisChosen = false;
 
-// var classicGameOptions = ['<img class="computer-choice" src="assets/happy-rocks.png">', '<img class="computer-choice" src="assets/happy-paper.png">', '<img class="computer-choice" src="assets/happy-scissors.png">'];
-// var difficultGameOptions = ['<img src="assets/happy-rocks.png">', '<img src="assets/happy-paper.png">', '<img src="assets/happy-scissors.png">', '<img src="assets/flat-alien.png">', '<img src="assets/ufo.png">'];
+var classicGameOptions = ['<img class="computer-choice" src="assets/happy-rocks.png">', '<img class="computer-choice" src="assets/happy-paper.png">', '<img class="computer-choice" src="assets/happy-scissors.png">'];
+var difficultGameOptions = ['<img src="assets/happy-rocks.png">', '<img src="assets/happy-paper.png">', '<img src="assets/happy-scissors.png">', '<img src="assets/flat-alien.png">', '<img src="assets/ufo.png">'];
 
-// var computerChoice = [];
-// var humanChoice = [];
+var computerChoice = [];
+var humanChoice = [];
 
-// *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
+// *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+Data Model*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
 function createPlayer(name, wins) {
   var player = {
     playerName: name,
@@ -66,8 +68,8 @@ var difficultVersion = {
 
 var classicGame = createGame(humanPlayer, computerPlayer, classicVersion);
 var difficultGame = createGame(humanPlayer, computerPlayer, difficultVersion);
-// console.log(classicGame)
-// console.log(difficultGame)
+console.log(classicGame)
+console.log(difficultGame)
 
 //this is so the human & computer obj can be assigned a new key with a random fighter
 var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
@@ -81,8 +83,6 @@ function takeClassicTurn(activeClassicPlayer, fighter) {
   if (activeClassicPlayer === humanPlayer) {
     activeClassicPlayer.chosenFighter = fighter
   } else if (activeClassicPlayer === computerPlayer) {
-      // for (var i = 0; i < classicVersion.length; i++) {
-      // }
     activeClassicPlayer.chosenFighter = randomClassicFighter
     }
   return activeClassicPlayer
@@ -92,8 +92,6 @@ function takeDifficultTurn(activeDifficultPlayer, fighter) {
   if (activeDifficultPlayer === humanPlayer) {
     activeDifficultPlayer.chosenFighter = fighter
   } else if (activeDifficultPlayer === computerPlayer) {
-      // for (var i = 0; i < difficultVersion.length; i++) {
-      // }
     activeDifficultPlayer.chosenFighter = randomDifficultFighter
     }
   return activeDifficultPlayer
@@ -176,10 +174,6 @@ console.log(difficultFighters[computerPlayer.chosenFighter].beats)
 
 // *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
 
-// function getRandomIndex(array) {
-//   return Math.floor(Math.random() * array.length);
-// }
-
 // function classicComputerChoice() {
 //   var classicComputerChoice = classicGameOptions[getRandomIndex(classicGameOptions)]
 //   computerChoiceDisplay.innerHTML = classicComputerChoice
@@ -192,27 +186,19 @@ console.log(difficultFighters[computerPlayer.chosenFighter].beats)
 //   computerChoice.push(difficultComputerChoice)
 // }
 
-// function chooseClassicGame() {
-//   rockButton.classList.remove('hidden');
-//   paperButton.classList.remove('hidden');
-//   scissorsButton.classList.remove('hidden');
-//   classicChoiceButton.classList.add('hidden');
-//   difficultChoiceButton.classList.add('hidden');
-//   displayMessage.innerText = "Choose your fighter!";
-//   classicGameisChosen = true;
-// }
+function chooseClassicGame() {
+  homeView.classList.add('hidden');
+  classicGameView.classList.remove('hidden');
+  displayMessage.innerText = "Choose your fighter!";
+  // classicGameisChosen = true;
+}
 
-// function chooseDifficultGame() {
-//   rockButton.classList.remove('hidden');
-//   paperButton.classList.remove('hidden');
-//   scissorsButton.classList.remove('hidden');
-//   alienButton.classList.remove('hidden');
-//   ufoButton.classList.remove('hidden');
-//   classicChoiceButton.classList.add('hidden');
-//   difficultChoiceButton.classList.add('hidden');
-//   displayMessage.innerText = "Choose your fighter!";
-//   difficultGameisChosen = true
-// }
+function chooseDifficultGame() {
+  difficultGameView.classList.remove('hidden');
+  homeView.classList.add('hidden');
+  displayMessage.innerText = "Choose your fighter!";
+  // difficultGameisChosen = true
+}
 
 // function chooseRock() {
 //   paperButton.classList.add('hidden');
