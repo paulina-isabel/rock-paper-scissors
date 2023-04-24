@@ -24,6 +24,7 @@ difficultChoiceButton.addEventListener('click', function() {
 });
 changeGameButton.addEventListener('click', changeGame);
 classicGameView.addEventListener('click', battle);
+difficultGameView.addEventListener('click', battle);
 
 fighters.forEach(fighter => {
   fighter.addEventListener('click', assignFighter);
@@ -53,10 +54,6 @@ var gameRules = {
   ufo: ['paper', 'alien']
 };
 
-
-var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
-var randomDifficultFighter = difficultVersion.fighters[randomDifficultIndex];
-
 function createPlayer(name) {
   var player = {
     playerName: name,
@@ -70,7 +67,6 @@ function createGame() {
   var game = {
     player1: humanPlayer,
     player2: computerPlayer,
-    // gameType: classicVersion || difficultVersion,
     classicGameisChosen: false,
   }
   return game
@@ -84,9 +80,18 @@ function displayGame(gameView) {
   displayMessage.innerText = "Choose your fighter!";  
 }
 
+// function findOpponent(computerPlayer) {
+//   if 
+// }
+
 function findClassicOpponent(computerPlayer) {
   var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
  computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
+}
+
+function findDifficultOpponent(computerPlayer) {
+  var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
+  computerPlayer.chosenFighter = difficultVersion.fighters[randomDifficultIndex];
 }
 
 function assignFighter(event) {
@@ -95,8 +100,8 @@ function assignFighter(event) {
     findClassicOpponent(computerPlayer)
     displayChosenFighter(computerPlayer.chosenFighter)
   } else {
-    computerPlayer.chosenFighter = randomDifficultFighter;
-    displayChosenFighter(randomDifficultFighter)
+    findDifficultOpponent(computerPlayer)
+    displayChosenFighter(computerPlayer.chosenFighter)
   }
   displayChosenFighter(event);   
 };
@@ -107,11 +112,9 @@ function displayChosenFighter() {
   difficultGameView.classList.add('hidden');
   chosenFighters.innerHTML = `<img class="fighter" id="${humanPlayer.chosenFighter}" src="assets/${humanPlayer.chosenFighter}.png">
   <img class="fighter" id="${computerPlayer.chosenFighter}" src="assets/${computerPlayer.chosenFighter}.png">`
-  // whoWon()
 };
 
 function battle(event){
-  findClassicOpponent(computerPlayer),
   assignFighter(event),
   checkDraw()
   whoWon(),
@@ -126,8 +129,22 @@ function resetGame() {
   classicGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
   <img class="fighter" id="paper" src="assets/paper.png">
   <img class="fighter" id="scissors" src="assets/scissors.png">`;
-  classicGameView.classList.remove('hidden');
+  difficultGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
+  <img class="fighter" id="paper" src="assets/paper.png">
+  <img class="fighter" id="scissors" src="assets/scissors.png">
+  <img class="fighter" id="alien" src="assets/alien.png">
+  <img class="fighter" id="ufo" src="assets/ufo.png">`;
+  // classicGameView.classList.remove('hidden');
   displayMessage.innerText = 'Choose your fighter!'
+  gameViewReset()
+}
+
+function gameViewReset() {
+  if (classicGameisChosen === true) {
+    classicGameView.classList.remove('hidden')
+  } else {
+    difficultGameView.classList.remove('hidden')
+  }
 }
 
 function whoWon() {
