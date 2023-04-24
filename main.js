@@ -1,267 +1,186 @@
-// var displayMessage = document.querySelector('#display-message');
+var displayMessage = document.querySelector('#display-message');
+var fighters = document.querySelectorAll('.fighter');
+// VIEWS SELECTORS
+var homeView = document.querySelector('.home-view');
+var classicGameView = document.querySelector('.classic-game-view');
+var difficultGameView = document.querySelector('.difficult-game-view');
+var chosenFighters = document.querySelector('.chosen-fighters');
+var classicBack = document.getElementById('#classic-view');
+var humanTally = document.querySelector('.human-wins-tally');
+var computerTally = document.querySelector('.computer-wins-tally');
+//BUTTONS selectors
+var changeGameButton = document.querySelector('.change-game-button');
+var classicChoiceButton = document.querySelector('.classic-choice');
+var difficultChoiceButton = document.querySelector('.difficult-choice');
 
-// var gameView = document.querySelector('.game-view');
-// var computerChoiceDisplay = document.querySelector('.computer-choice');
 
-// var changeGameButton = document.querySelector('.change-game-button');
-// var classicChoiceButton = document.querySelector('.classic-choice');
-// var difficultChoiceButton = document.querySelector('.difficult-choice');
-// var rockButton = document.querySelector('.rock-button');
-// var paperButton = document.querySelector('.paper-button');
-// var scissorsButton = document.querySelector('.scissors-button');
-// var alienButton = document.querySelector('.alien-button');
-// var ufoButton = document.querySelector('.ufo-button');
-// var rocksImage = document.querySelector('.rocks-image');
+//EVENT LISTENERS
+classicChoiceButton.addEventListener('click', function() {
+  displayGame(classicGameView)
+  classicGameisChosen = true;
+});
+difficultChoiceButton.addEventListener('click', function() {
+  displayGame(difficultGameView)
+});
+changeGameButton.addEventListener('click', changeGame);
+classicGameView.addEventListener('click', battle);
+difficultGameView.addEventListener('click', battle);
 
-// var computerRock = document.querySelector('.computer-rock');
+fighters.forEach(fighter => {
+  fighter.addEventListener('click', assignFighter);
+})
 
-// classicChoiceButton.addEventListener('click', chooseClassicGame);
-// difficultChoiceButton.addEventListener('click', chooseDifficultGame);
-// rockButton.addEventListener('click', chooseRock);
-// paperButton.addEventListener('click', choosePaper);
-// scissorsButton.addEventListener('click', chooseScissors);
-// alienButton.addEventListener('click', chooseAlien);
-// ufoButton.addEventListener('click', chooseUfo);
+// GLOBE VARS
+var classicGameisChosen = false;
+var difficultGameisChosen = false;
+var humanPlayer = createPlayer('Human', 0);
+var computerPlayer = createPlayer('Computer', 0);
+var classicGame = createGame('Classic');
+var difficultGame = createGame('Difficult');
 
-// var classicGameisChosen = false;
-// var difficultGameisChosen = false;
+var classicVersion = {
+  fighters: ['rocks', 'paper', 'scissors']
+};
 
-// var classicGameOptions = ['<img class="computer-choice" src="assets/happy-rocks.png">', '<img class="computer-choice" src="assets/happy-paper.png">', '<img class="computer-choice" src="assets/happy-scissors.png">'];
-// var difficultGameOptions = ['<img src="assets/happy-rocks.png">', '<img src="assets/happy-paper.png">', '<img src="assets/happy-scissors.png">', '<img src="assets/flat-alien.png">', '<img src="assets/ufo.png">'];
+var difficultVersion = {
+  fighters: ['rocks', 'paper', 'scissors', 'alien', 'ufo']
+};
 
-// var computerChoice = [];
-// var humanChoice = [];
+var gameRules = {
+  rocks: ['scissors', 'ufo'],
+  paper: ['rocks', 'alien'],
+  scissors: ['paper', 'ufo'],
+  alien: ['scissors', 'rocks'],
+  ufo: ['paper', 'alien']
+};
 
-// *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
-function createPlayer(name, wins) {
+function createPlayer(name) {
   var player = {
     playerName: name,
-    playerWins: wins,
+    playerWins: 0,
+    chosenFighter: null
   }
   return player
 }
 
-var humanPlayer = createPlayer('Human', 0);
-var computerPlayer= createPlayer('Computer', 0);
-// console.log(humanPlayer)
-// console.log(computerPlayer)
-
-function createGame(player1, player2, gameType) {
+function createGame() {
   var game = {
-    player1: player1,
-    player2: player2,
-    gameType: gameType
-    //a way to keep track of data for the game board
-    //a way to keep track of the selected game type
+    player1: humanPlayer,
+    player2: computerPlayer,
+    classicGameisChosen: false,
   }
   return game
 }
 
-var classicVersion = {
-  fighters: ['rock', 'paper', 'scissors']
-};
-var difficultVersion = {
-  fighters: ['rock', 'paper', 'scissors', 'alien', 'ufo']
-};
-
-var classicGame = createGame(humanPlayer, computerPlayer, classicVersion);
-var difficultGame = createGame(humanPlayer, computerPlayer, difficultVersion);
-// console.log(classicGame)
-// console.log(difficultGame)
-
-//this is so the human & computer obj can be assigned a new key with a random fighter
-var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
-var randomClassicFighter = classicVersion.fighters[randomClassicIndex]
-
-randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
-var randomDifficultFighter = difficultVersion.fighters[randomDifficultIndex]
-// console.log(randomDifficultFighter)
-
-function takeClassicTurn(activeClassicPlayer, fighter) {
-  if (activeClassicPlayer === humanPlayer) {
-    activeClassicPlayer.chosenFighter = fighter
-  } else if (activeClassicPlayer === computerPlayer) {
-      // for (var i = 0; i < classicVersion.length; i++) {
-      // }
-    activeClassicPlayer.chosenFighter = randomClassicFighter
-    }
-  return activeClassicPlayer
+function displayGame(gameView) {
+  game = createGame()
+  homeView.classList.add('hidden');
+  gameView.classList.remove('hidden');
+  changeGameButton.classList.remove('hidden');
+  displayMessage.innerText = "Choose your fighter!";  
 }
 
-function takeDifficultTurn(activeDifficultPlayer, fighter) {
-  if (activeDifficultPlayer === humanPlayer) {
-    activeDifficultPlayer.chosenFighter = fighter
-  } else if (activeDifficultPlayer === computerPlayer) {
-      // for (var i = 0; i < difficultVersion.length; i++) {
-      // }
-    activeDifficultPlayer.chosenFighter = randomDifficultFighter
-    }
-  return activeDifficultPlayer
+// function findOpponent(computerPlayer) {
+//   if 
+// }
+
+function findClassicOpponent(computerPlayer) {
+  var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
+ computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
 }
 
-// var firstTurn = takeClassicTurn(computerPlayer)
-// console.log(firstTurn)
-// var secondTurn = takeClassicTurn(humanPlayer, 'scissors')
-// console.log(secondTurn)
+function findDifficultOpponent(computerPlayer) {
+  var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
+  computerPlayer.chosenFighter = difficultVersion.fighters[randomDifficultIndex];
+}
 
-var thirdTurn = takeDifficultTurn(computerPlayer)
-// console.log(thirdTurn)
-var fourthTurn = takeDifficultTurn(humanPlayer, 'scissors')
-// console.log(fourthTurn)
-
-// **********RULES*************
-
-//////////classique/////////
-var classicFighters = {
-  rock: {beats: 'scissors'},
-  paper: {beats: 'rock'},
-  scissors: {beats: 'paper'}
-};
-
-// console.log(classicFighters.rock)
-// console.log(classicFighters.rock.beats)
-
-function whoWonClassic(player1, player2) {
-  if (classicFighters[player1.chosenFighter].beats === player2.chosenFighter) {
-    player1.playerWins += 1
-    return `${player1.playerName} won this round!`
-  } else if (classicFighters[player2.chosenFighter].beats === player1.chosenFighter) {
-    player2.playerWins += 1
-    return `${player2.playerName} won this round!`
+function assignFighter(event) {
+  humanPlayer.chosenFighter = event.target.id;
+  if (classicGameisChosen === true) {
+    findClassicOpponent(computerPlayer)
+    displayChosenFighter(computerPlayer.chosenFighter)
   } else {
-    return `It's a draw!`
+    findDifficultOpponent(computerPlayer)
+    displayChosenFighter(computerPlayer.chosenFighter)
+  }
+  displayChosenFighter(event);   
+};
+
+function displayChosenFighter() {
+  chosenFighters.classList.remove('hidden');
+  classicGameView.classList.add('hidden');
+  difficultGameView.classList.add('hidden');
+  chosenFighters.innerHTML = `<img class="fighter" id="${humanPlayer.chosenFighter}" src="assets/${humanPlayer.chosenFighter}.png">
+  <img class="fighter" id="${computerPlayer.chosenFighter}" src="assets/${computerPlayer.chosenFighter}.png">`
+};
+
+function battle(event){
+  assignFighter(event),
+  checkDraw()
+  whoWon(),
+  updateScore(),
+  displayScores(),
+  setTimeout(resetGame, 3000)
+}
+
+function resetGame() {
+  chosenFighters.classList.add('hidden');
+  chosenFighters.innerHTML = ""
+  classicGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
+  <img class="fighter" id="paper" src="assets/paper.png">
+  <img class="fighter" id="scissors" src="assets/scissors.png">`;
+  difficultGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
+  <img class="fighter" id="paper" src="assets/paper.png">
+  <img class="fighter" id="scissors" src="assets/scissors.png">
+  <img class="fighter" id="alien" src="assets/alien.png">
+  <img class="fighter" id="ufo" src="assets/ufo.png">`;
+  displayMessage.innerText = 'Choose your fighter!'
+  gameViewReset()
+}
+
+function gameViewReset() {
+  if (classicGameisChosen === true) {
+    classicGameView.classList.remove('hidden')
+  } else {
+    difficultGameView.classList.remove('hidden')
   }
 }
 
-// winner = whoWonClassic(humanPlayer, computerPlayer)
-// console.log(classicFighters[humanPlayer.chosenFighter].beats)
-// console.log(computerPlayer.chosenFighter)
-// console.log(humanPlayer.chosenFighter)
-// console.log(computerPlayer.chosenFighter)
-// console.log(humanPlayer.playerWins)
-// console.log(computerPlayer.playerWins)
-// console.log(winner)
-
-//////////difficult/////////
-
-var difficultFighters = {
-  rock: {beats: 'scissors' || 'ufo'},
-  paper: {beats: 'rock' || 'alien'},
-  scissors: {beats: 'paper' || 'ufo'},
-  alien: {beats: 'scissors' || 'rock'},
-  ufo: {beats: 'paper' || 'alien'}
+function whoWon() {
+  if (game.isDraw === true) {
+    displayMessage.innerText = 'It\'s a draw!'    
+  } else if (gameRules[humanPlayer.chosenFighter].includes(computerPlayer.chosenFighter)) {
+    displayMessage.innerText = 'Human won this round!'
+  } else {
+    displayMessage.innerText = 'Computer won this round!'
+  }
 };
 
-function whoWonDifficult(player1, player2) {
-  if (difficultFighters[player1.chosenFighter].beats === player2.chosenFighter) {
-    console.log('in first')
-    player1.playerWins += 1
-    return `${player1.playerName} won this round!`
-  } else if (difficultFighters[player2.chosenFighter].beats === player1.chosenFighter) {
-    console.log('in second')
-    player2.playerWins += 1
-    return `${player2.playerName} won this round!`
+function checkDraw() {
+  if (humanPlayer.chosenFighter === computerPlayer.chosenFighter) {
+    game.isDraw = true
   } else {
-    console.log('in third')
-    return `It's a draw!`
+    game.isDraw = false
   }
-}
+};
 
-winner = whoWonDifficult(humanPlayer, computerPlayer)
-console.log(winner)
-console.log(humanPlayer.playerWins)
-console.log(computerPlayer.playerWins)
-console.log(computerPlayer.chosenFighter)
-console.log(difficultFighters[computerPlayer.chosenFighter].beats)
+function updateScore() {
+  if (displayMessage.innerText === 'Human won this round!') {
+    humanPlayer.playerWins += 1
+  } else if (displayMessage.innerText === 'Computer won this round!') {
+    computerPlayer.playerWins += 1
+  }
+};
 
-// *+*+*++*+**+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*+*+**+*+*+*+**+*+*+*+*+*+**+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*÷
+function displayScores() {
+  humanTally.innerText = `Wins: ${humanPlayer.playerWins}`;
+  computerTally.innerText = `Wins: ${computerPlayer.playerWins}`;
+};
 
-// function getRandomIndex(array) {
-//   return Math.floor(Math.random() * array.length);
-// }
-
-// function classicComputerChoice() {
-//   var classicComputerChoice = classicGameOptions[getRandomIndex(classicGameOptions)]
-//   computerChoiceDisplay.innerHTML = classicComputerChoice
-//   computerChoice.push(classicComputerChoice)
-// }
-
-// function difficultComputerChoice() {
-//   var difficultComputerChoice = difficultGameOptions[getRandomIndex(difficultGameOptions)]
-//   computerChoiceDisplay.innerHTML = difficultComputerChoice
-//   computerChoice.push(difficultComputerChoice)
-// }
-
-// function chooseClassicGame() {
-//   rockButton.classList.remove('hidden');
-//   paperButton.classList.remove('hidden');
-//   scissorsButton.classList.remove('hidden');
-//   classicChoiceButton.classList.add('hidden');
-//   difficultChoiceButton.classList.add('hidden');
-//   displayMessage.innerText = "Choose your fighter!";
-//   classicGameisChosen = true;
-// }
-
-// function chooseDifficultGame() {
-//   rockButton.classList.remove('hidden');
-//   paperButton.classList.remove('hidden');
-//   scissorsButton.classList.remove('hidden');
-//   alienButton.classList.remove('hidden');
-//   ufoButton.classList.remove('hidden');
-//   classicChoiceButton.classList.add('hidden');
-//   difficultChoiceButton.classList.add('hidden');
-//   displayMessage.innerText = "Choose your fighter!";
-//   difficultGameisChosen = true
-// }
-
-// function chooseRock() {
-//   paperButton.classList.add('hidden');
-//   scissorsButton.classList.add('hidden');
-//   alienButton.classList.add('hidden');
-//   ufoButton.classList.add('hidden');
-//     if (difficultGameisChosen === true) {
-//       difficultComputerChoice()
-//     } else if (classicGameisChosen === true) {
-//       classicComputerChoice()
-//     }
-// }
-
-// function choosePaper() {
-//   rockButton.classList.add('hidden');
-//   scissorsButton.classList.add('hidden');
-//   alienButton.classList.add('hidden');
-//   ufoButton.classList.add('hidden');
-//     if (difficultGameisChosen === true) {
-//       difficultComputerChoice()
-//     } else if (classicGameisChosen === true) {
-//       classicComputerChoice()
-//     }
-// }
-
-// function chooseScissors() {
-//   rockButton.classList.add('hidden');
-//   paperButton.classList.add('hidden');
-//   alienButton.classList.add('hidden');
-//   ufoButton.classList.add('hidden');
-//     if (difficultGameisChosen === true) {
-//       difficultComputerChoice()
-//     } else if (classicGameisChosen === true) {
-//       classicComputerChoice()
-//     }
-// }
-
-// function chooseAlien() {
-//   rockButton.classList.add('hidden');
-//   paperButton.classList.add('hidden');
-//   scissorsButton.classList.add('hidden');
-//   ufoButton.classList.add('hidden');
-//   difficultComputerChoice()
-// }
-
-// function chooseUfo() {
-//   rockButton.classList.add('hidden');
-//   paperButton.classList.add('hidden');
-//   scissorsButton.classList.add('hidden');
-//   alienButton.classList.add('hidden');
-//   difficultComputerChoice()
-// }
+function changeGame() {
+  homeView.classList.remove('hidden');
+  classicGameView.classList.add('hidden');
+  difficultGameView.classList.add('hidden');
+  changeGameButton.classList.add('hidden');
+  chosenFighters.classList.add('hidden');
+};

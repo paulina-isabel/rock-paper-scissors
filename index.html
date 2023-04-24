@@ -27,27 +27,27 @@
       ufo > paper & alien
     </button>
   </section>
-  <section class="game-view">
-    <p class="computer-choice">
-      <!-- <img class="computer-rock" src="assets/happy-rocks.png">
-      <img class="players" src="assets/happy-paper.png">
-      <img class="players" src="assets/happy-scissors.png">
-      <img class="players" src="assets/flat-alien.png">
-      <img class="players" src="assets/ufo.png"> -->
-    </p>
-    <button class="rock-button hidden"></button>
-    <button class="paper-button hidden"></button>
-    <button class="scissors-button hidden"></button><br>
-    <button class="alien-button hidden"></button>
-    <button class="ufo-button hidden"></button>
+  <section class="chosen-fighters hidden">
+  </section>
+  <section class="classic-game-view hidden" id="classic-view">
+      <img class="fighter" id="rocks" src="assets/rocks.png">
+      <img class="fighter" id="paper" src="assets/paper.png">
+      <img class="fighter" id="scissors" src="assets/scissors.png">
+  </section>
+  <section class="difficult-game-view hidden" id="difficult-view">
+    <img class="fighter" id="rocks" src="assets/rocks.png">
+    <img class="fighter" id="paper" src="assets/paper.png">
+    <img class="fighter" id="scissors" src="assets/scissors.png">
+    <img class="fighter" id="alien" src="assets/alien.png">
+    <img class="fighter" id="ufo" src="assets/ufo.png">
   </section>
   <section class="computer-wins">
     <div class="computer-wins-header">💻 Computer 💻</div>
-      <p class="computer-wins-tally"><em>Wins: 0</em></p>
+      <p class="computer-wins-tally">Wins: 0</p>
   </section>
   <section class="human-wins">
     <div class="human-wins-header">👸 Human 👸</div>
-      <p class="human-wins-tally"><em>Wins: 0</em></p>
+      <p class="human-wins-tally">Wins: 0</p>
   </section>
   <script src="main.js"></script>
  </body>

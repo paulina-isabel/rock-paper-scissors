@@ -2,7 +2,6 @@
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: large;
-  /* border: #FFE6E8 3px solid; */
   }
 
 html {
@@ -15,40 +14,33 @@ header {
   font-weight: bolder;
 }
 
-.computer-choice {
+.fighter {
   height: 180px;
   width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
 }
 
-#display-message, header {
+#display-message, 
+header {
   padding: 10px;
 }
 
-.home-view {
+.home-view, 
+.classic-game-view, 
+.difficult-game-view {
   margin-top: 50px;
+}
+
+.home-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.rock-button, .paper-button, .scissors-button, .alien-button, .ufo-button {
-  height: 180px;
-  width: 180px;
-  background: transparent;
-  background-size: cover;
-  border: none;
-  margin: 30px;
-}
-
-.rock-button, .paper-button, .scissors-button, .alien-button, .ufo-button, .change-game-button, .classic-choice, .difficult-choice {
+ .change-game-button, .classic-choice, .difficult-choice {
   cursor: pointer;
   transform: scale(1.1);
-  /* border: #FFE6E8 3px solid; */
+  border: #FFE6E8 3px solid;
 }
 
 .change-game-button {
@@ -57,29 +49,11 @@ header {
   width: 140px;
   background: #FFE6E8;
   border-radius: 10px;
+  padding-top: 10px
 }
 
-.rock-button {
-  background-image: url("assets/happy-rocks.png");
-}
-
-.paper-button {
-  background-image: url("assets/happy-paper.png");
-}
-
-.scissors-button {
-  background-image: url("assets/happy-scissors.png");
-}
-
-.alien-button {
-  background-image: url("assets/flat-alien.png");
-}
-
-.ufo-button {
-  background-image: url("assets/ufo.png");
-}
-
-.classic-choice, .difficult-choice {
+.classic-choice, 
+.difficult-choice {
   border-radius: 10px;
   text-align: center;
   width: 240px;
@@ -95,12 +69,14 @@ header {
   height: 230px;
 }
 
-.computer-wins-header, .human-wins-header {
+.computer-wins-header, 
+.human-wins-header {
   font-size: 20px;
   font-weight: bolder;
 }
 
-.computer-wins, .human-wins {
+.computer-wins, 
+.human-wins {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,11 +94,6 @@ header {
 
 .human-wins {
   left: 0;
-}
-
-.happy-paper {
-  height: 80px;
-  width: 60px;
 }
 
 .hidden {
