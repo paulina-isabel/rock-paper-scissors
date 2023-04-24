@@ -80,28 +80,24 @@ function displayGame(gameView) {
   displayMessage.innerText = "Choose your fighter!";  
 }
 
-// function findOpponent(computerPlayer) {
-//   if 
-// }
-
-function findClassicOpponent(computerPlayer) {
-  var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
- computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
-}
-
-function findDifficultOpponent(computerPlayer) {
-  var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
-  computerPlayer.chosenFighter = difficultVersion.fighters[randomDifficultIndex];
+function findOpponent(computerPlayer) {
+  if (classicGameisChosen === true) {
+    var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
+    computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
+  } else {
+    var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
+    computerPlayer.chosenFighter = difficultVersion.fighters[randomDifficultIndex];
+  }
 }
 
 function assignFighter(event) {
   humanPlayer.chosenFighter = event.target.id;
   if (classicGameisChosen === true) {
-    findClassicOpponent(computerPlayer)
+    findOpponent(computerPlayer)
     displayChosenFighter(computerPlayer.chosenFighter)
   } else {
-    findDifficultOpponent(computerPlayer)
-    displayChosenFighter(computerPlayer.chosenFighter)
+    findOpponent(computerPlayer)
+  displayChosenFighter(computerPlayer.chosenFighter)  
   }
   displayChosenFighter(event);   
 };
