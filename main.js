@@ -134,7 +134,6 @@ function resetGame() {
   <img class="fighter" id="scissors" src="assets/scissors.png">
   <img class="fighter" id="alien" src="assets/alien.png">
   <img class="fighter" id="ufo" src="assets/ufo.png">`;
-  // classicGameView.classList.remove('hidden');
   displayMessage.innerText = 'Choose your fighter!'
   gameViewReset()
 }
