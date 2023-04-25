@@ -20,8 +20,9 @@ header {
   padding: 8px;
 }
 
-.display-message,
-header {
+header,
+.fighter,
+.display-message {
   padding: 10px;
 }
 
