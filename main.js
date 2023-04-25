@@ -123,7 +123,7 @@ function startGame(event){
 };
 
 function resetGame() {
-  chosenFighters.classList.add('hidden');
+  addHiddenClassList([chosenFighters])
   chosenFighters.innerHTML = ""
   classicGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
   <img class="fighter" id="paper" src="assets/paper.png">
