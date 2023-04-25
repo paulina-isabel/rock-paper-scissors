@@ -1,6 +1,7 @@
-var displayMessage = document.querySelector('#display-message');
+
 var fighters = document.querySelectorAll('.fighter');
 var homeView = document.querySelector('.home-view');
+var displayMessage = document.querySelector('#display-message');
 var classicGameView = document.querySelector('.classic-game-view');
 var difficultGameView = document.querySelector('.difficult-game-view');
 var chosenFighters = document.querySelector('.chosen-fighters');
@@ -60,7 +61,7 @@ function createGame() {
   var game = {
     player1: humanPlayer,
     player2: computerPlayer,
-    classicGameisChosen: false,
+    classicGameisChosen: false
   }
   return game
 };
