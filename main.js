@@ -1,4 +1,5 @@
 
+// Query selectors
 var fighters = document.querySelectorAll('.fighter');
 var homeView = document.querySelector('.home-view');
 var displayMessage = document.querySelector('.display-message');
@@ -11,17 +12,14 @@ var changeGameButton = document.querySelector('.change-game-button');
 var classicChoiceButton = document.querySelector('.classic-choice');
 var difficultChoiceButton = document.querySelector('.difficult-choice');
 
-var humanPlayer = createPlayer('Human', 0);
-var computerPlayer = createPlayer('Computer', 0);
-var classicGameisChosen = false;
-
+// Event listeners
 changeGameButton.addEventListener('click', changeGame);
 classicGameView.addEventListener('click', startGame);
 difficultGameView.addEventListener('click', startGame);
 
 classicChoiceButton.addEventListener('click', function() {
   displayGame(classicGameView)
-  classicGameisChosen = true;
+  game.classicGameisChosen = true;
 });
 
 difficultChoiceButton.addEventListener('click', function() {
@@ -31,6 +29,10 @@ difficultChoiceButton.addEventListener('click', function() {
 fighters.forEach(fighter => {
   fighter.addEventListener('click', assignFighter)
 });
+
+// Global variables
+var humanPlayer = createPlayer('Human', 0);
+var computerPlayer = createPlayer('Computer', 0);
 
 var classicVersion = {
   fighters: ['rocks', 'paper', 'scissors']
@@ -48,6 +50,7 @@ var gameRules = {
   ufo: ['paper', 'alien']
 };
 
+// JS
 function createPlayer(name) {
   var player = {
     playerName: name,
@@ -86,7 +89,7 @@ function displayGame(gameView) {
 };
 
 function findOpponent(computerPlayer) {
-  if (classicGameisChosen === true) {
+  if (game.classicGameisChosen === true) {
     var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length)
     computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
   } else {
@@ -97,7 +100,7 @@ function findOpponent(computerPlayer) {
 
 function assignFighter(event) {
   humanPlayer.chosenFighter = event.target.id;
-  if (classicGameisChosen === true) {
+  if (game.classicGameisChosen === true) {
     findOpponent(computerPlayer)
     displayChosenFighter(computerPlayer.chosenFighter)
   } else {
@@ -140,7 +143,7 @@ function resetGame() {
 };
 
 function gameViewReset() {
-  if (classicGameisChosen === true) {
+  if (game.classicGameisChosen === true) {
     removeHiddenClassList([classicGameView])
   } else {
     removeHiddenClassList([difficultGameView])
