@@ -1,7 +1,7 @@
 
 var fighters = document.querySelectorAll('.fighter');
 var homeView = document.querySelector('.home-view');
-var displayMessage = document.querySelector('#display-message');
+var displayMessage = document.querySelector('.display-message');
 var classicGameView = document.querySelector('.classic-game-view');
 var difficultGameView = document.querySelector('.difficult-game-view');
 var chosenFighters = document.querySelector('.chosen-fighters');
@@ -126,14 +126,15 @@ function startGame(event){
 function resetGame() {
   addHiddenClassList([chosenFighters])
   chosenFighters.innerHTML = ""
-  classicGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
-  <img class="fighter" id="paper" src="assets/paper.png">
-  <img class="fighter" id="scissors" src="assets/scissors.png">`;
-  difficultGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png">
-  <img class="fighter" id="paper" src="assets/paper.png">
-  <img class="fighter" id="scissors" src="assets/scissors.png">
-  <img class="fighter" id="alien" src="assets/alien.png">
-  <img class="fighter" id="ufo" src="assets/ufo.png">`;
+  classicGameView.innerHTML = `<img class="fighter" id="rocks" src="assets/rocks.png" alt="rocks">
+    <img class="fighter" id="paper" src="assets/paper.png" alt="paper">
+    <img class="fighter" id="scissors" src="assets/scissors.png" alt="scissors">`;
+  difficultGameView.innerHTML = `<div>
+    <img class="fighter" id="rocks" src="assets/rocks.png" alt="rocks">
+    <img class="fighter" id="paper" src="assets/paper.png" alt="paper">
+    <img class="fighter" id="scissors" src="assets/scissors.png" alt="scissors"></div>
+    <div><img class="fighter" id="alien" src="assets/alien.png" alt="alien">
+    <img class="fighter" id="ufo" src="assets/ufo.png" alt="ufo"></div>`;
   displayMessage.innerText = 'Choose your fighter!'
   gameViewReset()
 };
