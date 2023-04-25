@@ -179,6 +179,7 @@ function displayScores() {
 };
 
 function changeGame() {
+  displayMessage.innerText = 'Choose your game!'
   addHiddenClassList([classicGameView, difficultGameView, changeGameButton, chosenFighters])
   removeHiddenClassList([homeView])
 };
