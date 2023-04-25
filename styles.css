@@ -28,7 +28,8 @@ header,
 
 .home-view,
 .classic-game-view,
-.difficult-game-view {
+.difficult-game-view,
+.chosen-fighters {
   margin-top: 50px;
 }
 
