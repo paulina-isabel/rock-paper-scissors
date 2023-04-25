@@ -87,10 +87,10 @@ function displayGame(gameView) {
 
 function findOpponent(computerPlayer) {
   if (classicGameisChosen === true) {
-    var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length);
+    var randomClassicIndex = Math.floor(Math.random() * classicVersion.fighters.length)
     computerPlayer.chosenFighter = classicVersion.fighters[randomClassicIndex]
   } else {
-    var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length);
+    var randomDifficultIndex = Math.floor(Math.random() * difficultVersion.fighters.length)
     computerPlayer.chosenFighter = difficultVersion.fighters[randomDifficultIndex];
   }
 };
@@ -102,9 +102,9 @@ function assignFighter(event) {
     displayChosenFighter(computerPlayer.chosenFighter)
   } else {
     findOpponent(computerPlayer)
-  displayChosenFighter(computerPlayer.chosenFighter)  
+    displayChosenFighter(computerPlayer.chosenFighter)  
   }
-  displayChosenFighter(event);   
+  displayChosenFighter(event)
 };
 
 function displayChosenFighter() {
@@ -116,7 +116,7 @@ function displayChosenFighter() {
 
 function startGame(event){
   assignFighter(event),
-  checkDraw()
+  checkDraw(),
   whoWon(),
   updateScore(),
   displayScores(),
@@ -173,8 +173,8 @@ function updateScore() {
 };
 
 function displayScores() {
-  humanTally.innerText = `Wins: ${humanPlayer.playerWins}`;
-  computerTally.innerText = `Wins: ${computerPlayer.playerWins}`;
+  humanTally.innerText = `Wins: ${humanPlayer.playerWins}`
+  computerTally.innerText = `Wins: ${computerPlayer.playerWins}`
 };
 
 function changeGame() {
