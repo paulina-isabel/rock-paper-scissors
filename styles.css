@@ -42,12 +42,6 @@ header,
 
 .change-game-button,
 .classic-choice,
-.difficult-choice {
-  border: #FFE6E8 3px solid;
-}
-
-.change-game-button,
-.classic-choice,
 .difficult-choice,
 .fighter {
   cursor: pointer;
@@ -60,7 +54,6 @@ header,
   width: 140px;
   background: #FFE6E8;
   border-radius: 10px;
-  /* padding-top: 10px */
 }
 
 .classic-choice,
@@ -91,7 +84,6 @@ header,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: #FFE6E8 3px solid;
   position: absolute;
   bottom: 0;
   height: 100%;
