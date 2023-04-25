@@ -31,9 +31,6 @@ fighters.forEach(fighter => {
 });
 
 // Global variables
-var humanPlayer = createPlayer('Human', 0);
-var computerPlayer = createPlayer('Computer', 0);
-
 var classicVersion = {
   fighters: ['rocks', 'paper', 'scissors']
 };
@@ -60,7 +57,9 @@ function createPlayer(name) {
   return player
 };
 
-function createGame() {    
+function createGame() {
+  humanPlayer = createPlayer('Human', 0);
+  computerPlayer = createPlayer('Computer', 0);    
   var game = {
     player1: humanPlayer,
     player2: computerPlayer,
