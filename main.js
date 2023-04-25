@@ -123,7 +123,7 @@ function startGame(event){
   whoWon(),
   updateScore(),
   displayScores(),
-  setTimeout(resetGame, 1500)
+  setTimeout(resetGame, 1300)
 };
 
 function resetGame() {
