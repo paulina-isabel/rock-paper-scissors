@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <link rel="stylesheet" href="styles.css">
-   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
- </head>
- <body>
-  <title>Rock, Paper, Scissors</title>
-   <header>Rock, Paper, Scissors</header>
-   <div id="display-message">Choose your game!</div>
-   <button class="change-game-button hidden">Change Game?</button>
-  <section class="home-view">
-    <button class="classic-choice">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ <title>Rock, Paper, Scissors</title>
+  <header>Rock, Paper, Scissors</header>
+  <h1 class="display-message">Choose your game!</h1>
+  <button class="change-game-button hidden">Change Game?</button>
+ <section class="home-view">
+   <button class="classic-choice">
       🪨📃✂️<br>
       <b>CLASSIC</b><br>
       rock > scissors<br>
       paper > rock<br>
       scissors > paper
-    </button>
-    <button class="difficult-choice">
-      🪨📃✂️👽🛸<br>
-      <b>DIFFICULT</b><br>
-      rock > scissors & ufo<br>
-      paper > rock & alien<br>
-      scissors > paper & ufo<br>
-      alien > scissors & rock<br>
-      ufo > paper & alien
-    </button>
-  </section>
-  <section class="chosen-fighters hidden">
-  </section>
-  <section class="classic-game-view hidden" id="classic-view">
-      <img class="fighter" id="rocks" src="assets/rocks.png">
-      <img class="fighter" id="paper" src="assets/paper.png">
-      <img class="fighter" id="scissors" src="assets/scissors.png">
-  </section>
-  <section class="difficult-game-view hidden" id="difficult-view">
+   </button>
+   <button class="difficult-choice">
+    🪨📃✂️👽🛸<br>
+    <b>DIFFICULT</b><br>
+    rock > scissors & ufo<br>
+    paper > rock & alien<br>
+    scissors > paper & ufo<br>
+    alien > scissors & rock<br>
+    ufo > paper & alien
+   </button>
+ </section>
+ <section class="chosen-fighters hidden">
+ </section>
+ <section class="classic-game-view hidden" id="classic-view">
     <img class="fighter" id="rocks" src="assets/rocks.png">
     <img class="fighter" id="paper" src="assets/paper.png">
     <img class="fighter" id="scissors" src="assets/scissors.png">
+ </section>
+ <section class="difficult-game-view hidden" id="difficult-view">
+   <img class="fighter" id="rocks" src="assets/rocks.png">
+   <img class="fighter" id="paper" src="assets/paper.png">
+   <img class="fighter" id="scissors" src="assets/scissors.png">
     <img class="fighter" id="alien" src="assets/alien.png">
     <img class="fighter" id="ufo" src="assets/ufo.png">
-  </section>
-  <section class="computer-wins">
-    <div class="computer-wins-header">💻 Computer 💻</div>
-      <p class="computer-wins-tally">Wins: 0</p>
-  </section>
-  <section class="human-wins">
-    <div class="human-wins-header">👸 Human 👸</div>
-      <p class="human-wins-tally">Wins: 0</p>
-  </section>
-  <script src="main.js"></script>
- </body>
+ </section>
+ <section class="computer-wins">
+   <div class="computer-wins-header">💻 Computer 💻</div>
+   <p class="computer-wins-tally">Wins: 0</p>
+ </section>
+ <section class="human-wins">
+   <div class="human-wins-header">👸 Human 👸</div>
+   <p class="human-wins-tally">Wins: 0</p>
+ </section>
+ <script src="main.js"></script>
+</body>
 </html>
