@@ -7,7 +7,7 @@ Welcome to a solution for one of life's biggest problems: no one to play rock, p
 - Clone down your new, forked repo
 - cd into the repository
 - Open it in your text editor
-- View the project in the browser by running open index.html in your terminal`
+- View the project in the browser by running open index.html in your terminal
 ​
 ## PREVIEW OF APP
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/123966150/234424658-52f065bf-bd9d-458d-9a55-dedb09db1136.gif)
