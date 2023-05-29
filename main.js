@@ -59,7 +59,7 @@ function createPlayer(name) {
 
 function createGame() {
   humanPlayer = createPlayer('Human', 0);
-  computerPlayer = createPlayer('Computer', 0);    
+  computerPlayer = createPlayer('Computer', 0);
   var game = {
     player1: humanPlayer,
     player2: computerPlayer,
@@ -110,6 +110,7 @@ function assignFighter(event) {
 };
 
 function displayChosenFighter() {
+  changeGameButton.disabled = true
   addHiddenClassList([classicGameView, difficultGameView])
   removeHiddenClassList([chosenFighters])
   chosenFighters.innerHTML = `<img class="fighter" id="${humanPlayer.chosenFighter}" src="assets/${humanPlayer.chosenFighter}.png">
@@ -139,6 +140,7 @@ function resetGame() {
     <img class="fighter" id="ufo" src="assets/ufo.png" alt="ufo"></div>`;
   displayMessage.innerText = 'Choose your fighter!'
   gameViewReset()
+  changeGameButton.disabled = false
 };
 
 function gameViewReset() {
