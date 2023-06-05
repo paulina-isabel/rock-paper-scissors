@@ -13,7 +13,7 @@ Welcome to a solution for one of life's biggest problems: no one to play rock, p
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/123966150/234424658-52f065bf-bd9d-458d-9a55-dedb09db1136.gif)
 
 ## CONTEXT
-I am a front end engineering student at Turing, this is my final solo project as required of Mod 1 of the program. The project took a week to complete. 
+I am a front end engineering student at [Turing School of Software and Design](https://turing.edu/). This is my final solo project as required of Mod 1 of the program. The project took a week to complete. 
 
 ## CONTRIBUTORS
 [Paulina Rubio](https://github.com/paulina-isabel)
